@@ -11,15 +11,15 @@ MQTT_PORT = 1883
 MQTT_USERNAME = "user"
 MQTT_PASSWORD = "password"
 MQTT_BASE_TOPIC = "home/devices/<MAC>/presence"
-MQTT_AVAIL_TOPIC = "home/" + DEVICE_ID + "/availability"
+MQTT_AVAIL_TOPIC = "home/presence_detection/" + DEVICE_ID + "/availability"
 MQTT_HOME_PAYLOAD = "home"
 MQTT_AWAY_PAYLOAD = "not_home"
 
 def on_connect(client, userdata, flags, rc):
-    mqttc.publish(MQTT_AVAIL_TOPIC, "online")
+    mqttc.publish(MQTT_AVAIL_TOPIC, "online", 1, True)
 
 def on_disconnect(client, userdata, rc):
-    mqttc.publish(MQTT_AVAIL_TOPIC, "offline")
+    mqttc.publish(MQTT_AVAIL_TOPIC, "offline", 1, True)
 
 mqttc = mqtt.Client(DEVICE_ID)
 
