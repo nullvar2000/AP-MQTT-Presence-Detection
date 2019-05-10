@@ -10,15 +10,15 @@ This script requires python and the paho-mqtt library. The paho-mqtt library can
 
 Install requirements:
 
-opkg update
-opkg install python-light
-opkg install python-pip
+opkg update<br />
+opkg install python-light<br />
+opkg install python-pip<br />
 pip install paho-mqtt
 
 Copy python script:
 
-opkg install libustream-mbedtls
-mkdir -p /usr/local/bin
+opkg install libustream-mbedtls<br />
+mkdir -p /usr/local/bin<br />
 wget https://github.com/nullvar2000/AP-MQTT-Presence-Detection/blob/master/presence.py -P /usr/local/bin/
 
 To run the python script as a service:
