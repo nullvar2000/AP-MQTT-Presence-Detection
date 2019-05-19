@@ -29,6 +29,24 @@ Add the following line to /etc/rc.local before the "exit 0" line:
 
 nohup /usr/local/bin/presence.py &
 
+# Home Assistant Setup
+
+I set this up in Home Assistant, but it should be able to work with any MQTT compatible systems. To use this script with Home Assistant, add the following to your configuration.yaml file. Simply replace the mac addresses with the correct ones from the devices to be tracked and add/remove devices as needed.
+
+binary_sensor:
+  - platform: mqtt
+    name: "Wifi AP Presence Detection"
+    state_topic: 'home/presense_detection/wifi-ap/availability'
+    payload_on: 'online'
+    payload_off: 'offline'
+    device_class: connectivity
+    
+device_tracker:
+  - platform: mqtt
+    devices:
+      Harry: 'home/devices/01:23:45:67:89:ab/presence'
+      Sally: 'home/devices/01:23:45:67:89:ac/presence'
+
 # Thanks
 
 Thanks to Chen A. at https://stackoverflow.com/questions/46245250/subprocess-with-watch-command for the subprocess example.
