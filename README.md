@@ -33,6 +33,8 @@ nohup /usr/local/bin/presence.py &
 
 I set this up in Home Assistant, but it should be able to work with any MQTT compatible systems. To use this script with Home Assistant, add the following to your configuration.yaml file. Simply replace the mac addresses with the correct ones from the devices to be tracked and add/remove devices as needed.
 
+Sorry, fix the formating for yaml. I'll figure out how to get it right in here some other time. 
+
 binary_sensor:<br />
   - platform: mqtt<br />
     name: "Wifi AP Presence Detection"<br />
