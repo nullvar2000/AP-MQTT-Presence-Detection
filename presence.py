@@ -21,11 +21,13 @@ MQTT_AWAY_PAYLOAD = "not_home"
 
 def on_connect(client, userdata, flags, rc):
         print "Connected to MQTT server"
+        global isConnected
         isConnected = True
         mqttc.publish(MQTT_AVAIL_TOPIC, "online", 0, True)
 
 def on_disconnect(client, userdata, rc):
         print "Lost connection to MQTT server"
+        global isConnected
         isConnected = False
         mqttc.publish(MQTT_AVAIL_TOPIC, "offline",   0, True)
 
