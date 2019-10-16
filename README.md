@@ -38,7 +38,7 @@ Sorry, fix the formating for yaml. I'll figure out how to get it right in here s
 binary_sensor:<br />
   - platform: mqtt<br />
     name: "Wifi AP Presence Detection"<br />
-    state_topic: 'home/presense_detection/wifi-ap/availability'<br />
+    state_topic: 'home/wifi-ap/availability'<br />
     payload_on: 'online'<br />
     payload_off: 'offline'<br />
     device_class: connectivity<br />
@@ -46,8 +46,8 @@ binary_sensor:<br />
 device_tracker:<br />
   - platform: mqtt<br />
     devices:<br />
-      Harry: 'home/devices/01:23:45:67:89:ab/presence'<br />
-      Sally: 'home/devices/01:23:45:67:89:ac/presence'
+      Harry: 'home/wifi-ap/devices/01:23:45:67:89:ab/presence'<br />
+      Sally: 'home/wifi-ap/devices/01:23:45:67:89:ac/presence'
 
 # Thanks
 
